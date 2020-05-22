@@ -19,6 +19,7 @@ const IndexScreen = ({ navigation }) => {
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
+          console.log("Indedx -> " + item.title);
           return (
             <TouchableOpacity
               onPress={() => {
@@ -41,6 +42,16 @@ const IndexScreen = ({ navigation }) => {
       />
     </View>
   );
+};
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({
