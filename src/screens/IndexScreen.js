@@ -11,15 +11,14 @@ import { Context } from "../context/BlogContext";
 import Feather from "@expo/vector-icons/Feather";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+  const { state, deleteBlogPost } = useContext(Context);
   return (
     <View>
-      <Button onPress={addBlogPost} title="New Blog" />
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
-          console.log("Indedx -> " + item.title);
+          console.log("IndexPage -> " + item.title);
           return (
             <TouchableOpacity
               onPress={() => {

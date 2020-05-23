@@ -18,10 +18,15 @@ const blogReducer = (state, action) => {
   }
 };
 
-const addBlogPost = dispatch => {
-  return ({ title, content }) =>
+const addBlogPost = (dispatch) => {
+  return (title, content, callback) => {
+    console.log("Blog Context --> " + title + " " + content);
     dispatch({
-      type: "add_blogpost", payload: { title:title, content: content } });
+      type: "add_blogpost",
+      payload: { title, content },
+    });
+    callback();
+  };
 };
 
 const deleteBlogPost = (dispatch) => {
